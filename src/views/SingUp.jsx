@@ -51,7 +51,7 @@ function SingUp() {
           placeholder="password"
           className="w-[520px] h-[55px] border-2 rounded-[16px] focus:outline-none ml-8 mt-[50px] font-[500] text-[21px] px-[4rem] focus:border-[#0089ED]"
         />
-        <Button type="Signup" />
+        <Button type="Sign up" />
       </form>
     </div>
   );
