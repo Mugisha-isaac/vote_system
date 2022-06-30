@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../index.css";
 import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
+import AuthComponent from "../components/AuthComponent";
 
 function SingUp() {
 
@@ -15,7 +17,11 @@ function SingUp() {
   const [isSubmit,setIsSubmit] = useState(false);
   const [errors,setErrors] = useState({});
   const [message,setMessage] = useState();
+  const [showMessage,setShowMessage] = useState(true);
+  const [errorMessage,setErrorMessage] = useState(false);
   const {nationalId,names,email,password} = user;
+
+  const navigate = useNavigate();
 
 
 
@@ -39,6 +45,8 @@ function SingUp() {
       setIsSubmit(true);
 
       await createUser();
+
+      navigate("/login");
   }
 
   const handleChange = (e)=>{
@@ -56,8 +64,12 @@ function SingUp() {
         body:JSON.stringify(user)
       });
       
-      if(response.status == 201) setMessage("Account created successfully");
-
+      if(response.status == 201){
+        setMessage("Account created successfully");
+        setTimeout(()=>{
+          setShowMessage(false);
+        },3000);
+      }; 
     }
     catch(err){
       throw new Error("Error found   while signup ");
@@ -66,6 +78,7 @@ function SingUp() {
 
 
   return (
+    <AuthComponent foamAction="Sign up to">
     <div className="bg-[#FFFFFF] m-2 w-[657px] h-[819px] rounded-[50px] mt-[5rem] shadow-lg">
       <div className="flex flex-row space-x-[10rem]">
         <div className=" px-10 flex flex-row gap-1 py-[25px]">
@@ -123,12 +136,14 @@ function SingUp() {
         />
         <Button type="Sign up" />
       </form>
+
       {
-        message && (
+        message && showMessage && (
           <div className="text-[21px] font-[600] mt-[50px] bg-green-600 text-center p-3 w-96 text-white mx-auto rounded-sm">{message}</div>
         )
       }
     </div>
+    </AuthComponent>
   );
 }
 

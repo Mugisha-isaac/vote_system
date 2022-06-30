@@ -4,7 +4,7 @@ import OngoingElections from './OngoingElections'
 import SingUp from '../views/SingUp'
 import Logo from '../images/Vector.png'
 
-function AuthComponent() {
+function AuthComponent({foamAction, children}) {
   return (
     <div className="w-[115rem] m-1 overflow-y-hidden">
     <div className="bg-[#0089ED] h-[615px] flex space-x-3">
@@ -12,7 +12,7 @@ function AuthComponent() {
         <p className="px-8 py-5 ml-10 text-[48px] text-white font-bold">LOGO</p>
         <div className="flex flex-row gap-8 mt-[8rem]">
           <div className="ml-10 px-8 py-4 w-[60%]">
-            <p className="text-[40px]  font-bold text-white">Sign Up to</p>
+            <p className="text-[40px]  font-bold text-white">{foamAction}</p>
             <p className="text-[26px] font-[400] text-[#FFFFFF] py-1">
               vote for future leaders
             </p>
@@ -30,7 +30,7 @@ function AuthComponent() {
       </div>
       <div></div>
       <div>
-        <SingUp /> 
+        {children}
       </div>
     </div>
     <div className="m-4">
