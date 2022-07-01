@@ -26,7 +26,7 @@ const LiveUpdate = () => {
             <div className="relative">
                 <p className="text-[20px] font-[400]">{candidate.names}</p>
                 <Progress className="w-[200px] h-[10px] mt-4" color= {candidate.votes < 50 ? 'red' : 'green'} value={candidate.votes} variant="filled" />
-                <p className="absolute top-0 right-0 mt-5">{candidate.votes}%</p>
+                <p className="absolute top-0 right-0 mt-5 ">{candidate.votes}%</p>
             </div>
           </div>
          ))}
