@@ -9,7 +9,6 @@ const CandidateCard = () => {
       .then((data) => setCandidates(data));
   }, [candidates]);
 
-  console.log(candidates);
 
   return (
     <div className="ml-[214px] flex flex-row gap-20 mt-5 w-[50%]">
