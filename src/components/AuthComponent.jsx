@@ -6,7 +6,7 @@ import Logo from '../images/Vector.png'
 
 function AuthComponent({foamAction, children}) {
   return (
-    <div className="w-[115rem] m-1 overflow-y-hidden">
+    <div className="w-[115rem]  overflow-y-hidden">
     <div className="bg-[#0089ED] h-[615px] flex space-x-3">
       <div className="w-[50%] ml-10">
         <p className="px-8 py-5 ml-10 text-[48px] text-white font-bold">LOGO</p>
